@@ -1,0 +1,15 @@
+<!-- <ul>
+    <li *ngFor="let item of PokemonsData " >
+        {{item.name}}
+    </li> 
+</ul> -->
+
+<!-- <app-card *ngFor="let item of PokemonsData | paginate: { itemsPerPage: 10, currentPage: page }">
+    [card]="cards"
+</app-card> -->
+
+<div *ngFor="let item of PokemonsData | paginate: { itemsPerPage: 10, currentPage: page }">
+    {{item.name}}
+</div>
+
+ <pagination-controls (pageChange)="page = $event"></pagination-controls>
