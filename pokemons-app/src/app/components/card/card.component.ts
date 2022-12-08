@@ -8,8 +8,13 @@ import {Icard} from "../../models/card.interface"
 })
 export class CardComponent implements OnInit{
   
-@Input() cards!: Array<Icard>
+@Input()
+ cards!: Array<Icard>
+ pokemonsData!: Array<Icard>
+ page: number = 1
 
 ngOnInit(): void {  
 }
 }
+
+

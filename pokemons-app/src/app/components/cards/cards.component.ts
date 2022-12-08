@@ -10,8 +10,8 @@ import{Icard} from '../../models/card.interface'
 })
 export class CardsComponent implements OnInit {
 
-  // cards: Icard[] = [];
-  cards: any;
+  cards: Icard[] = [];
+  // cards: any;
 
   constructor(private apiTaskService:ApiService){ }
   page: number = 1
