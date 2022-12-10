@@ -1,0 +1,9 @@
+@mixin btn {
+    padding: 10;
+    border-radius: 10px;
+    width:100px;
+    cursor: pointer;
+    margin:10px,10px,10px 0;
+    display: inline-block;
+    color:green
+}

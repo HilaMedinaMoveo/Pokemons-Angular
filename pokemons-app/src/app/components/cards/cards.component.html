@@ -1,4 +1,9 @@
-<app-button></app-button>
+<header>
+    <h1>{{title.toUpperCase()}}</h1>
+    <app-button
+         (detailsClick)="showMoreDetails()" >
+    </app-button>
+
 <div  class="card" *ngFor="let item of PokemonsData | paginate: { itemsPerPage: 10, currentPage: page }">
     <div>
         {{item.name}}
@@ -8,6 +13,7 @@
         {{item.url}}
     </p>
 </div>
+</header>
  <pagination-controls (pageChange)="page = $event"></pagination-controls>
 
 

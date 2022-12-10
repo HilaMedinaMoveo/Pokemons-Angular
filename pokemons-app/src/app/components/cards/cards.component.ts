@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import{Icard} from '../../models/card.interface'
+import{ Icard, IPokemonsData } from '../../models/card.interface'
 
 
 @Component({
@@ -9,6 +9,7 @@ import{Icard} from '../../models/card.interface'
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
+  title:string = "Pokemons cards";
 
   cards: Icard[] = [];
   // cards: any;
@@ -16,17 +17,26 @@ export class CardsComponent implements OnInit {
   constructor(private apiTaskService:ApiService){ }
   page: number = 1
   
-  PokemonsData!: Icard[];
-
-ngOnInit(): void{ 
+  PokemonsData!: Icard[]; 
+  // PokemonsData!: IPokemonsData[]
+  
+  ngOnInit(): void{ 
+    // this.apiTaskService.getPokemons().subscribe((data:Object) =>{
     this.apiTaskService.getPokemons().subscribe((data:any) =>{
-      this.PokemonsData = data.results
+    this.PokemonsData = data.results
+      console.log( this.PokemonsData)
       const array = this.PokemonsData.forEach((item) =>
+      // const array = this.PokemonsData.results.forEach((item) =>
       console.log(item.name,item.url))
     })
   }
+  showMoreDetails() {
+    console.log("showMoreDatails1")
+  }
+  
 }
- 
+
+
 
 
 

@@ -3,3 +3,9 @@ export interface Icard {
     url: string
 }
 
+export interface IPokemonsData {
+    results: Icard
+
+}
+
+
