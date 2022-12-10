@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
-import { Icard } from '../models/card.interface';
+import { Icard, IgetPokemonsResponse, IPokemon } from '../models/card.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) {   
   }
-  getPokemons(): Observable<Icard>{
-     return this.http.get<Icard>("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100/")
+  getPokemons(url:string = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100"): Observable<IgetPokemonsResponse>{
+     return this.http.get<IgetPokemonsResponse>(url)
   }
+  getPokemonDetails(url: string): Observable<IPokemon>{
+   return this.http.get<IPokemon>(url)
 
+ }
 }

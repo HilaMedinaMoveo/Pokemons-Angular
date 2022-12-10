@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 
-import{ Icard, IPokemonsData } from '../../models/card.interface'
+import{ Icard, IgetPokemonsResponse, IPokemon,  } from '../../models/card.interface'
 
 @Component({
   selector: 'app-cards',
@@ -10,30 +10,29 @@ import{ Icard, IPokemonsData } from '../../models/card.interface'
 })
 export class CardsComponent implements OnInit {
   title:string = "Pokemons cards";
-  item: Icard[] = [];
+  item?: IPokemon 
   array: any;
   
   constructor(private apiTaskService :ApiService){ }
   page: number = 1
-  PokemonsData!: Icard[]; 
-  // PokemonsData!: IPokemonsData[]
-  
+  pokemonsData!: Icard[]; 
+  pokemons: IPokemon[]  = [];
+  next?: string
+
+paginate(): void{  
+  this.apiTaskService.getPokemons().subscribe((data:IgetPokemonsResponse) =>{
+    this.pokemonsData = data.results
+    this.next = data.next
+     this.pokemonsData.forEach((item) => {
+      this.apiTaskService.getPokemonDetails(item.url).subscribe(pokemon=>{
+       this.pokemons.push(pokemon) 
+      })
+     }) 
+    })
+}
+
   ngOnInit(): void{ 
-    // this.apiTaskService.getPokemons().subscribe((data:Object) =>{
-    this.apiTaskService.getPokemons().subscribe((data:any) =>{
-    this.PokemonsData = data.results
-      console.log( this.PokemonsData)
-    const array = this.PokemonsData.forEach((item) => {
-      this.item.getPokemonsPhoto().subscribe(item.url)
-    console.log(item)
-    })
-    // console.log(array)
-    // this.array.forEach((photo:any) => {photo.url.get(photo.url)
-    // console.log(photo.url)})
-    // })
-       this.array.forEach((photo:any) => 
-       console.log(photo.url))
-    })
+    this.paginate()
   }
   showMoreDetails() {
     console.log("showMoreDatails1")
