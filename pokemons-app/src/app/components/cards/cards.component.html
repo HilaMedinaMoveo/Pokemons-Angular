@@ -1,18 +1,7 @@
 <header>
     <h1>{{title.toUpperCase()}}</h1>
-    <app-button
-         (detailsClick)="showMoreDetails()" >
-    </app-button>
-
-<div  class="card" *ngFor="let item of PokemonsData | paginate: { itemsPerPage: 10, currentPage: page }">
-    <div>
-        {{item.name}}
-    </div>
-<br>
-    <p class="p">
-        {{item.url}}
-    </p>
-</div>
+    <app-card *ngFor="let item of PokemonsData | paginate: { itemsPerPage: 10, currentPage: page }" [item]="item">
+    </app-card>
 </header>
  <pagination-controls (pageChange)="page = $event"></pagination-controls>
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import {Icard} from "../../models/card.interface"
 
 @Component({
@@ -9,11 +9,14 @@ import {Icard} from "../../models/card.interface"
 export class CardComponent implements OnInit{
   
 @Input()
- cards!: Array<Icard>
- pokemonsData!: Array<Icard>
- page: number = 1
+item!: Icard;
+pokemonsData!: Array<Icard>
+page: number = 1
 
 ngOnInit(): void {  
+}
+showMoreDetails() {
+  console.log("showMoreDatails1")
 }
 }
 

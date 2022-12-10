@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import{ Icard, IPokemonsData } from '../../models/card.interface'
 
+import{ Icard, IPokemonsData } from '../../models/card.interface'
 
 @Component({
   selector: 'app-cards',
@@ -10,13 +10,11 @@ import{ Icard, IPokemonsData } from '../../models/card.interface'
 })
 export class CardsComponent implements OnInit {
   title:string = "Pokemons cards";
-
-  cards: Icard[] = [];
-  // cards: any;
-
-  constructor(private apiTaskService:ApiService){ }
-  page: number = 1
+  item: Icard[] = [];
+  array: any;
   
+  constructor(private apiTaskService :ApiService){ }
+  page: number = 1
   PokemonsData!: Icard[]; 
   // PokemonsData!: IPokemonsData[]
   
@@ -25,9 +23,16 @@ export class CardsComponent implements OnInit {
     this.apiTaskService.getPokemons().subscribe((data:any) =>{
     this.PokemonsData = data.results
       console.log( this.PokemonsData)
-      const array = this.PokemonsData.forEach((item) =>
-      // const array = this.PokemonsData.results.forEach((item) =>
-      console.log(item.name,item.url))
+    const array = this.PokemonsData.forEach((item) => {
+      this.item.getPokemonsPhoto().subscribe(item.url)
+    console.log(item)
+    })
+    // console.log(array)
+    // this.array.forEach((photo:any) => {photo.url.get(photo.url)
+    // console.log(photo.url)})
+    // })
+       this.array.forEach((photo:any) => 
+       console.log(photo.url))
     })
   }
   showMoreDetails() {
