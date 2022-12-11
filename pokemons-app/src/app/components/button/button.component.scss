@@ -1,7 +1,11 @@
 @import '../../../../../pokemons-app/src/scss/mixins.scss';
+// @use '../../../../../pokemons-app/src/scss/mixins.scss';
+
 
 .button{
-    // background-color: black;
-    // color:aqua;
     @include btn;
+}
+.div{
+    width:15px;
+    border:1px solid black 
 }

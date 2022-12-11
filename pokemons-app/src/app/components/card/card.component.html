@@ -1,7 +1,10 @@
 <div class="PokemonCard">
 <p class="name">{{item.name}}</p>
 <img src="{{item.sprites.front_default}}"/> 
-    <app-button
-         (detailsClick)="showMoreDetails()" >
-    </app-button>
+<app-button
+[item]="item" >
+
+</app-button>
 </div>
+
+<!-- (detailsClick)="showMoreDetails()" [item]="item" > -->

@@ -3,8 +3,8 @@
     <app-card *ngFor="let item of pokemons |  paginate: { itemsPerPage: 10, currentPage: page }" [item]="item">
     </app-card>
 </header>
- <pagination-controls (pageChange)="page = $event"></pagination-controls>
- <!-- <pagination-controls  (pageChange)="paginate"></pagination-controls> -->
+ <!-- <pagination-controls (pageChange)="page = $event"></pagination-controls> -->
+ <pagination-controls  (pageChange)="paginate"></pagination-controls>
 
 
 

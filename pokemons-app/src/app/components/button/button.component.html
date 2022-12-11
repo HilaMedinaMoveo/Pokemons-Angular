@@ -1,4 +1,7 @@
-<button class="button" (click)="onClick()">
-more details
+<button class="button" (click)="onClick()" >
+{{ isShowInfo == true ? 'unshow details' : 'show details' }}
 </button>
-
+<div [hidden]="!isShowInfo">
+    <p>id : {{item.id}}</p>
+    <p>height : {{item.height}}</p>
+</div>

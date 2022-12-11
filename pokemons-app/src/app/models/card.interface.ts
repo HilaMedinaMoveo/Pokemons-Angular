@@ -10,6 +10,7 @@ next : string,
 
 export interface IPokemon{
     height: number,
+    id: number,
     name: string,   
     sprites: {
         front_default: string,

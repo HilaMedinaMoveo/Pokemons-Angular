@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter , Input} from '@angular/core';
+import { IPokemon } from 'src/app/models/card.interface';
 
 @Component({
   selector: 'app-button',
@@ -6,9 +7,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements OnInit{
-
 @Output() detailsClick = new EventEmitter<any>();
+@Input() item!: IPokemon;
 
+isShowInfo: boolean = false;
 
   constructor() { }
 
@@ -16,7 +18,14 @@ export class ButtonComponent implements OnInit{
 
   onClick() {
     this.detailsClick.emit();
+    this.isShowInfo = !this.isShowInfo;
+    // console.log(this.isShowInfo);
+    // console.log(this.item.id);
+    // console.log(this.item.height);
   }
+    }
  
-}
+
+ 
+
 
