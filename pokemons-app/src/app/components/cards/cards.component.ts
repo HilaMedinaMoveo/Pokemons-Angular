@@ -12,6 +12,8 @@ export class CardsComponent implements OnInit {
   title:string = "Pokemons cards";
   item?: IPokemon 
   array: any;
+  searchText: any;
+
   
   constructor(private apiTaskService :ApiService){ }
   page: number = 1

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,13 +10,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { CardsComponent } from './components/cards/cards.component';
 import { ButtonComponent } from "./components/button/button.component";
 
+
+
 @NgModule({
     declarations: [
         AppComponent,
         CardComponent,
         CardsComponent,
-        ButtonComponent
-    ],
+        ButtonComponent,
+],
     providers: [],
     bootstrap: [AppComponent],
     imports: [
@@ -23,6 +26,7 @@ import { ButtonComponent } from "./components/button/button.component";
         AppRoutingModule,
         HttpClientModule,
         NgxPaginationModule,
+         
        
     ]
 })

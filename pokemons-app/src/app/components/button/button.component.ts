@@ -19,9 +19,6 @@ isShowInfo: boolean = false;
   onClick() {
     this.detailsClick.emit();
     this.isShowInfo = !this.isShowInfo;
-    // console.log(this.isShowInfo);
-    // console.log(this.item.id);
-    // console.log(this.item.height);
   }
     }
  
